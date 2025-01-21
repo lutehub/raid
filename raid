@@ -1,0 +1,10 @@
+sudo apt install scsitools
+sudo rescan-scsi-bus
+lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT (list block)
+sudo apt install mdadm
+sudo mdadm –-create –-verbose /dev/md0 –-level=0 –-raid-devices /dev/sdb /dev/sdc
+cat /proc/mdstat
+###BACK
+sudo mdadm –-stop /dev/md0
+sudo mdadm –-zero-superblock /dev/sdb
+sudo mdadm –-zero-superblock /dev/sdc
